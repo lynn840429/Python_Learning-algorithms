@@ -55,6 +55,10 @@ def garage(initial, final):
     # e.g.:  4, [{0, 2, 3, 1, 4}, {2, 0, 3, 1, 4}, 
     #            {2, 3, 0, 1, 4}, {0, 3, 2, 1, 4}]
 
+#steps, seq = garage([1, 2, 3, 0, 4], [0, 3, 2, 1, 4])
+steps, seq = garage([1, 2, 3, 5, 0, 4], [0, 3, 5, 2, 1, 4])
+print(steps, seq)
+
 """
 thus:
 1 2 3 0 4 -- zero = 3, true, car_to_move = final[3] = 1,
