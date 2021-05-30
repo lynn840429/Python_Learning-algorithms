@@ -9,7 +9,6 @@ Input: consider 123456789 members sitting in a circular fashion,
 Output: 369485271
 """
 
-
 def josephus(int_list, skip):
     skip = skip - 1                     # list starts with 0 index
     idx = 0
@@ -18,3 +17,7 @@ def josephus(int_list, skip):
         idx = (skip + idx) % len_list   # hash index to every 3rd
         yield int_list.pop(idx)
         len_list -= 1
+
+int_list = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+skip = 3
+print(list(josephus(int_list, skip)))
