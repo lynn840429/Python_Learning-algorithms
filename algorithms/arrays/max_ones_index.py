@@ -41,3 +41,5 @@ def max_ones_index(arr):
         max_index = prev_zero
 
     return max_index
+
+print(max_ones_index([0, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, ]))
