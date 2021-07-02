@@ -46,3 +46,13 @@ def plus_one_v3(num_arr):
         if num_arr[idx[0]]:
             return num_arr
     return [1] + num_arr
+
+
+print(plus_one_v1([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 100]))
+print(plus_one_v1([3, 1, 2, 4, 5, 6, 7, 8, 9, 10, 15, 100]))
+
+print(plus_one_v2([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 100]))
+print(plus_one_v2([3, 1, 2, 4, 5, 6, 7, 8, 9, 10, 15, 100]))
+
+print(plus_one_v3([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 15, 100]))
+print(plus_one_v3([3, 1, 2, 4, 5, 6, 7, 8, 9, 10, 15, 100]))
