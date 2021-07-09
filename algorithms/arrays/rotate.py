@@ -28,6 +28,10 @@ def rotate_v1(array, k):
         array[0] = temp
     return array
 
+print("rotate_v1")
+print(rotate_v1([1, 2, 3, 4, 5, 6, 7, 8, 9], 4))
+print(rotate_v1([1, 2, 3, 4, 5, 6, 7, 8, 9], -4))
+
 
 def rotate_v2(array, k):
     """
@@ -52,6 +56,10 @@ def rotate_v2(array, k):
     reverse(array, 0, n - 1)
     return array
 
+print("rotate_v2")
+print(rotate_v2([1, 2, 3, 4, 5, 6, 7, 8, 9], 4))
+print(rotate_v2([1, 2, 3, 4, 5, 6, 7, 8, 9], -4))
+
 
 def rotate_v3(array, k):
     if array is None:
@@ -59,3 +67,34 @@ def rotate_v3(array, k):
     length = len(array)
     k = k % length
     return array[length - k:] + array[:length - k]
+
+print("rotate_v3")
+print(rotate_v3([1, 2, 3, 4, 5, 6, 7, 8, 9], 4))
+print(rotate_v3([1, 2, 3, 4, 5, 6, 7, 8, 9], -4))
+
+
+def rotate_v4(array, k):
+    if array is None:
+        return None
+    array = array[-k:] + array[0:-k]
+    return array
+
+print("rotate_v4")
+print(rotate_v4([1, 2, 3, 4, 5, 6, 7, 8, 9], 4))
+print(rotate_v4([1, 2, 3, 4, 5, 6, 7, 8, 9], -4))
+
+
+def rotate_v5(array, k):
+    if array is None:
+        return None
+    if (k>=0):
+        for i in range(k):
+            array = [array[-1]] + array[0:-1]
+    else:
+        for i in range(-k):
+            array = array[1:] + [array[0]]
+    return array
+
+print("rotate_v5")
+print(rotate_v5([1, 2, 3, 4, 5, 6, 7, 8, 9], 4))
+print(rotate_v5([1, 2, 3, 4, 5, 6, 7, 8, 9], -4))
