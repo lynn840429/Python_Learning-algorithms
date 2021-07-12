@@ -25,3 +25,6 @@ def summarize_ranges(array):
             res.append((num, num))
         i += 1
     return res
+
+# print(summarize_ranges([6]))
+print(summarize_ranges([0, 1, 2, 4, 5, 7]))
