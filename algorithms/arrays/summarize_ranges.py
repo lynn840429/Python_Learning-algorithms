@@ -28,3 +28,4 @@ def summarize_ranges(array):
 
 # print(summarize_ranges([6]))
 print(summarize_ranges([0, 1, 2, 4, 5, 7]))
+print(summarize_ranges([8, 7, 6, 0, 1, 2, 4, 5, 7]))

@@ -11,6 +11,8 @@ compute it.
 
 Compleity: O(n)
 """
+import statistics
+
 def trimmean(arr, per):
     ratio = per/200
     # /100 for easy calculation by *, and /2 for easy adaption to best and worst parts.
@@ -19,6 +21,14 @@ def trimmean(arr, per):
     arr.sort()
     neg_val = int(len(arr)*ratio)
     arr = arr[neg_val:len(arr)-neg_val]
+
+    print("m1_val=", statistics.mean(arr))
+    print("m2_val=", sum(arr) / len(arr))
+
     for i in arr:
         cal_sum += i
     return cal_sum/len(arr)
+
+arr = [1, 1, 1, 3, 7, 9, 4, 3, 5, 46, 12, 4111, 875, 123, 45, 56, 89, 34, 59, 10]
+per = 10
+print(trimmean(arr, per))
