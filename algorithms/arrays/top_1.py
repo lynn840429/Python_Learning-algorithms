@@ -34,4 +34,6 @@ def top_1(arr):
             continue
     
     return result
-    
+
+arr = [1, 1, 2, 2, 3, 4]
+print(top_1(arr))
