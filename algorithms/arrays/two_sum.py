@@ -21,3 +21,24 @@ def two_sum(array, target):
         else:
             dic[target - num] = i
     return None
+
+array = [2, 7, 11, 15]
+target = 23
+print(two_sum(array, target))
+
+target = 22
+print(two_sum(array, target))
+
+array = [2, 7, 11, 15, 3]
+target = 18
+print(two_sum(array, target))
+
+array.sort()
+print(two_sum(array, target))
+
+array = [2, 3, 7, 15, 11]
+target = 18
+print(two_sum(array, target))
+
+array.sort()
+print(two_sum(array, target))
