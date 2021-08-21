@@ -24,3 +24,32 @@ def move_zeros(array):
 
 
 print(move_zeros([False, 1, 0, 1, 2, 0, 1, 3, "a"]))
+
+
+def move_zeros_ver2(array):
+    result = []
+    zeros = []
+
+    for i in array:
+        if (i==0) and (type(i)!=bool):
+            zeros.append(i)
+        else:
+            result.append(i)
+        
+    result = result + zeros
+    return result
+
+print(move_zeros_ver2([False, 1, 0, 1, 2, 0, 1, 3, "a"]))
+
+
+def move_zeros_ver3(array):
+    result = []
+    zeros = []
+
+    result = list(filter(lambda i: (i!=0)or(type(i)==bool), array))
+    zeros = [0] * (len(array) - len(result))
+
+    result = result + zeros
+    return result
+
+print(move_zeros_ver3([False, 1, 0, 1, 2, 0, 1, 3, "a"]))
