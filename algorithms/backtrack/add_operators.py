@@ -29,17 +29,30 @@ def add_operators(num, target):
                 break
             cur = int(num[pos:i+1])
             if pos == 0:
-                dfs(res, path + str(cur), num, target, i+1, cur, cur)
+                dfs(res, (path + str(cur)), num, target, (i+1), cur, cur)
             else:
-                dfs(res, path + "+" + str(cur), num, target,
-                    i+1, prev + cur, cur)
-                dfs(res, path + "-" + str(cur), num, target,
-                    i+1, prev - cur, -cur)
-                dfs(res, path + "*" + str(cur), num, target,
-                    i+1, prev - multed + multed * cur, multed * cur)
+                dfs(res, (path + "+" + str(cur)), num, target, (i+1), (prev + cur), cur)
+                dfs(res, (path + "-" + str(cur)), num, target, (i+1), (prev - cur), -cur)
+                dfs(res, (path + "*" + str(cur)), num, target, (i+1), (prev - multed + multed * cur), (multed * cur))
+                if (cur!=0):
+                    dfs(res, (path + "/" + str(cur)), num, target, (i+1), (prev - multed + multed / cur), (multed / cur))
 
     res = []
     if not num:
         return res
     dfs(res, "", num, target, 0, 0, 0)
     return res
+
+
+
+num, target = "232", 8
+print("num, target =", num, " ", target, ", Res=", add_operators(num, target))
+
+num, target = "322", 8
+print("num, target =", num, " ", target, ", Res=", add_operators(num, target))
+
+num, target = "722", 8
+print("num, target =", num, " ", target, ", Res=", add_operators(num, target))
+
+num, target = "3456237490", 9191
+print("num, target =", num, " ", target, ", Res=", add_operators(num, target))
