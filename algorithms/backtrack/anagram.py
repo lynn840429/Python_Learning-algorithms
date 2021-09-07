@@ -20,3 +20,21 @@ def anagram(s1, s2):
         c2[pos] = c2[pos] + 1
 
     return c1 == c2
+
+
+def anagram_2(s1, s2):
+    s1_list = list(s1)
+    s1_list.sort()
+
+    s2_list = list(s2)
+    s2_list.sort()
+
+    return s1_list == s2_list
+
+
+
+print(anagram("apple", "pleap"))
+print(anagram_2("apple", "pleap"))
+
+print(anagram("apple", "cherry"))
+print(anagram_2("apple", "cherry"))
