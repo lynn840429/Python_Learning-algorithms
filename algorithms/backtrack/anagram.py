@@ -32,9 +32,18 @@ def anagram_2(s1, s2):
     return s1_list == s2_list
 
 
+def anagram_3(s1, s2):
+    s1 = sorted(s1)
+    s2 = sorted(s2)
+
+    return s1 == s2
+
+
 
 print(anagram("apple", "pleap"))
 print(anagram_2("apple", "pleap"))
+print(anagram_3("apple", "pleap"))
 
 print(anagram("apple", "cherry"))
 print(anagram_2("apple", "cherry"))
+print(anagram_3("apple", "cherry"))
