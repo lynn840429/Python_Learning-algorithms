@@ -13,8 +13,21 @@ Result:
 [[1, 2, 4], [1, 3, 3], [1, 3, 3], [1, 3, 3], [1, 3, 3], [1, 4, 2],
  [2, 2, 3], [2, 2, 3], [2, 3, 2], [2, 3, 2], [3, 2, 2], [3, 2, 2]]
 """
-import itertools
+import itertools, time
+import random
 from functools import partial
+
+class Timer(object):
+    def __init__(self, name=None):
+        self.name = name
+
+    def __enter__(self):
+        self.tstart = time.time()
+
+    def __exit__(self, type, value, traceback):
+        if self.name:
+            print(self.name)
+        print("Elapsed:", (time.time() - self.tstart))
 
 
 def array_sum_combinations(A, B, C, target):
@@ -55,6 +68,21 @@ def array_sum_combinations(A, B, C, target):
     backtrack([], res)
     return res
 
+# A = [3, 1, 2, 3]
+# B = [2, 3, 3, 4]
+# C = [2, 3, 3, 4]
+# random.shuffle (A)
+# random.shuffle (B)
+# random.shuffle (C)
+A = [3, 1, 2, 3, 3, 1, 2, 3, 3, 1, 2, 3, 3, 1, 2, 3, 3, 4, 3, 1]
+B = [2, 3, 3, 4, 3, 1, 2, 3, 3, 1, 2, 3, 3, 1, 2, 3, 3, 3, 1, 2]
+C = [2, 3, 3, 4, 3, 3, 4, 3, 3, 3, 4, 3, 3, 3, 4, 3, 4, 3, 1, 2]
+target = 7
+
+print(A, B, C)
+
+#print(array_sum_combinations(A, B, C, target))
+
 
 def unique_array_sum_combinations(A, B, C, target):
     """
@@ -73,12 +101,46 @@ def unique_array_sum_combinations(A, B, C, target):
             return (False, nums)
 
     pro = itertools.product(A, B, C)
+    #print(list(pro))
     func = partial(check_sum, target)
     sums = list(itertools.starmap(func, pro))
+    #print(sums)
 
     res = set()
     for s in sums:
         if s[0] is True and s[1] not in res:
             res.add(s[1])
 
-    return list(res)
+    res = list(res)
+    res.sort()
+    return res
+
+with Timer('unique_array_sum_combinations'):
+    print(unique_array_sum_combinations(A, B, C, target))
+
+
+def unique_array_sum_combinations_2(A, B, C, target):
+    res = []
+    sum = 0
+
+    A.sort(reverse=True)
+    B.sort(reverse=True)
+    C.sort(reverse=True)
+
+    for i in A:
+        sum += i
+        for j in B:
+            sum += j
+            for k in C:
+                if ((sum+k)==target):
+                    res.append([i, j, k])
+            sum -= j
+        sum -= i
+    
+    res.sort()
+    res = list(res for res,_ in itertools.groupby(res))
+
+    return res
+
+with Timer('unique_array_sum_combinations_2'):
+    print(unique_array_sum_combinations_2(A, B, C, target))
