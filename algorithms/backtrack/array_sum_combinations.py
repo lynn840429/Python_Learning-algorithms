@@ -134,6 +134,7 @@ def unique_array_sum_combinations_2(A, B, C, target):
             for k in C:
                 if ((sum+k)==target):
                     res.append([i, j, k])
+                    break
             sum -= j
         sum -= i
     

@@ -15,6 +15,21 @@ A solution set is:
 ]
 """
 
+import time
+
+
+class Timer(object):
+    def __init__(self, name=None):
+        self.name = name
+
+    def __enter__(self):
+        self.tstart = time.time()
+
+    def __exit__(self, type, value, traceback):
+        if self.name:
+            print(self.name)
+        print("Elapsed:", (time.time() - self.tstart))
+
 
 def combination_sum(candidates, target):
 
@@ -25,9 +40,19 @@ def combination_sum(candidates, target):
             res.append(path)
             return
         for i in range(index, len(nums)):
-            dfs(nums, target-nums[i], i, path+[nums[i]], res)
+            dfs(nums=nums, 
+                target=(target-nums[i]), 
+                index=i, 
+                path=(path+[nums[i]]), 
+                res=res)
 
     res = []
     candidates.sort()
-    dfs(candidates, target, 0, [], res)
+    dfs(nums=candidates, target=target, index=0, path=[], res=res)
     return res
+
+
+candidates, target = [2, 3, 6, 7], 7
+
+with Timer('combination_sum'):
+    print(combination_sum(candidates, target))
