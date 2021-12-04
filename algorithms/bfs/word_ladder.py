@@ -36,6 +36,8 @@ def ladder_length(begin_word, end_word, word_list):
         return 0
 
     # when only differ by 1 character
+    print(list(zip(begin_word, end_word)))
+    print(list(c1 != c2 for c1, c2 in zip(begin_word, end_word)))
     if sum(c1 != c2 for c1, c2 in zip(begin_word, end_word)) == 1:
         return 1
 
@@ -67,6 +69,15 @@ def ladder_length(begin_word, end_word, word_list):
 def word_range(word):
     for ind in range(len(word)):
         temp = word[ind]
+        print([chr(x) for x in range(ord('a'), ord('z') + 1)])
         for c in [chr(x) for x in range(ord('a'), ord('z') + 1)]:
             if c != temp:
                 yield word[:ind] + c + word[ind + 1:]
+
+
+
+begin_word = "hit"
+end_word = "hog"
+#end_word = "cog"
+word_list = ["hot","dot","dog","lot","log"]
+print(ladder_length(begin_word, end_word, word_list))

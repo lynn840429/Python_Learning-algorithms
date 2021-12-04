@@ -42,12 +42,18 @@ def maze_search(maze):
     target_x, target_y = height - 1, width - 1
 
     queue = deque([(initial_x, initial_y, 0)])
+    if DEBUG: print("queue=", queue)
 
+    # is_visited = [[0, 0, 0], [0, 0, 0], [0, 0, 0]]
     is_visited = [[UNVISITED for w in range(width)] for h in range(height)]
+    if DEBUG: print("is_visited=", is_visited)
+    # is_visited = [[1, 0, 0], [0, 0, 0], [0, 0, 0]]
     is_visited[initial_x][initial_y] = VISITED
+    if DEBUG: print("is_visited=", is_visited)
 
     while queue:
         x, y, steps = queue.popleft()
+        if DEBUG: print(x, y, steps)
 
         if x == target_x and y == target_y:
             return steps
@@ -55,6 +61,8 @@ def maze_search(maze):
         for dx, dy in directions:
             new_x = x + dx
             new_y = y + dy
+            if DEBUG: print("new_x=", new_x, "new_y=", new_y)
+            if DEBUG: print("queue=", queue)
 
             if not (0 <= new_x < height and 0 <= new_y < width):
                 continue
@@ -62,6 +70,19 @@ def maze_search(maze):
             if maze[new_x][new_y] == ALLOWED and is_visited[new_x][new_y] == UNVISITED:
                 queue.append((new_x, new_y, steps + 1))
                 is_visited[new_x][new_y] = VISITED
+                if DEBUG_2: print(maze_pos[new_x][new_y])
 
     return -1 
 
+DEBUG = False
+DEBUG_2 = True
+# maze = [[1,0,0],
+#         [1,1,1],
+#         [0,1,1]]
+maze = [[1,0,0],
+        [1,1,1],
+        [1,0,1]]
+maze_pos = [[1,2,3],
+            [4,5,6],
+            [7,8,9]]
+print("Step=", maze_search(maze))

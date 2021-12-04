@@ -11,12 +11,16 @@ def shortest_distance(grid):
         return -1
 
     matrix = [[[0,0] for i in range(len(grid[0]))] for j in range(len(grid))]
+    if DEBUG: print("Init matrix=", matrix)
 
     count = 0    # count how many building we have visited
     for i in range(len(grid)):
         for j in range(len(grid[0])):
             if grid[i][j] == 1:
                 bfs(grid, matrix, i, j, count)
+                if DEBUG: 
+                    print("count=", count)
+                    print("matrix=", matrix)
                 count += 1
 
     res = float('inf')
@@ -31,10 +35,18 @@ def bfs(grid, matrix, i, j, count):
     q = [(i, j, 0)]
     while q:
         i, j, step = q.pop(0)
+        if DEBUG: print("i=", i, ", j=", j, ", step=", step)
         for k, l in [(i-1,j), (i+1,j), (i,j-1), (i,j+1)]:
             # only the position be visited by count times will append to queue
-            if 0<=k<len(grid) and 0<=l<len(grid[0]) and \
-                    matrix[k][l][1]==count and grid[k][l]==0:
+            if 0<=k<len(grid) and 0<=l<len(grid[0]) and matrix[k][l][1]==count and grid[k][l]==0:
                 matrix[k][l][0] += step+1
                 matrix[k][l][1] = count+1
                 q.append((k, l, step+1))
+
+
+
+DEBUG = True
+building = [[1,1,1],
+            [1,1,1],
+            [1,1,1]]
+print(shortest_distance(building))
