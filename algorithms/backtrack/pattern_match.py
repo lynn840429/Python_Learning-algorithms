@@ -29,14 +29,23 @@ def pattern_match(pattern, string):
             return True
 
         for end in range(1, len(string)-len(pattern)+2):
+
+            print("pattern[0]= %s, dic= %s, string[:%d]= %s, dic.value= %s" %(pattern[0], dic, end, string[:end], dic.values()))
             if pattern[0] not in dic and string[:end] not in dic.values():
                 dic[pattern[0]] = string[:end]
+                print("dic:", dic)
                 if backtrack(pattern[1:], string[end:], dic):
                     return True
                 del dic[pattern[0]]
+
             elif pattern[0] in dic and dic[pattern[0]] == string[:end]:
                 if backtrack(pattern[1:], string[end:], dic):
                     return True
         return False
 
     return backtrack(pattern, string, {})
+
+
+pattern = "aaa"
+str = "asdasdasd"
+print(pattern_match(pattern, str))

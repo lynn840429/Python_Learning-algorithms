@@ -15,10 +15,14 @@ def palindromic_substrings(s):
     results = []
     for i in range(len(s), 0, -1):
         sub = s[:i]
-        if sub == sub[::-1]:
+        sub2 = sub[::-1]
+        if sub == sub2:
             for rest in palindromic_substrings(s[i:]):
                 results.append([sub] + rest)
+
     return results
+
+print(palindromic_substrings('abcbab'))
 
 
 """

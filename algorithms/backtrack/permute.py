@@ -24,6 +24,9 @@ def permute(elements):
         tmp = []
         for perm in permute(elements[1:]):
             for i in range(len(elements)):
+                a = perm[:i]
+                b = elements[0:1]
+                c = perm[i:]
                 tmp.append(perm[:i] + elements[0:1] + perm[i:])
         return tmp
 
@@ -52,3 +55,7 @@ def permute_recursive(nums):
     res = []
     dfs(res, nums, [])
     return res
+
+nums = [1,2,3]
+#print(permute(nums))
+print(permute_recursive(nums))

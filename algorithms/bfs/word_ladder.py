@@ -46,6 +46,7 @@ def ladder_length(begin_word, end_word, word_list):
     begin_set.add(begin_word)
     end_set.add(end_word)
     result = 2
+
     while begin_set and end_set:
 
         if len(begin_set) > len(end_set):
@@ -54,22 +55,24 @@ def ladder_length(begin_word, end_word, word_list):
         next_begin_set = set()
         for word in begin_set:
             for ladder_word in word_range(word):
+                # print("ladder_word :", ladder_word)
                 if ladder_word in end_set:
+                    # print("if ladder_word in end_set")
                     return result
                 if ladder_word in word_list:
                     next_begin_set.add(ladder_word)
                     word_list.remove(ladder_word)
+                    # print("ladder_word in word_list")
+                    # print(next_begin_set)
         begin_set = next_begin_set
         result += 1
-        # print(begin_set)
-        # print(result)
+
     return -1
 
 
 def word_range(word):
     for ind in range(len(word)):
         temp = word[ind]
-        print([chr(x) for x in range(ord('a'), ord('z') + 1)])
         for c in [chr(x) for x in range(ord('a'), ord('z') + 1)]:
             if c != temp:
                 yield word[:ind] + c + word[ind + 1:]

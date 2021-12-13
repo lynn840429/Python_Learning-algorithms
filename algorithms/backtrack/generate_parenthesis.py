@@ -28,16 +28,22 @@ def generate_parenthesis_v1(n):
     add_pair(res, "", n, 0)
     return res
 
+#print(generate_parenthesis_v1(2))
+
 
 def generate_parenthesis_v2(n):
     def add_pair(res, s, left, right):
         if left == 0 and right == 0:
             res.append(s)
         if left > 0:
+            print("left:", left, right)
             add_pair(res, s + "(", left - 1, right)
         if right > 0 and left < right:
+            print("right:", left, right)
             add_pair(res, s + ")", left, right - 1)
 
     res = []
     add_pair(res, "", n, n)
     return res
+
+print(generate_parenthesis_v2(2))
