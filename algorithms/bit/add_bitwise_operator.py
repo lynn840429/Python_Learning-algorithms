@@ -12,3 +12,7 @@ def add_bitwise_operator(x, y):
         x = x ^ y
         y = carry << 1
     return x
+
+
+x, y = 3, 3
+print(add_bitwise_operator(x, y))
