@@ -9,6 +9,8 @@ def int_to_bytes_big_endian(num):
         num >>= 8
     return bytes(bytestr)
 
+num = 6
+print(int_to_bytes_big_endian(num))
 
 def int_to_bytes_little_endian(num):
     bytestr = []
@@ -17,6 +19,7 @@ def int_to_bytes_little_endian(num):
         num >>= 8
     return bytes(bytestr)
 
+print(int_to_bytes_little_endian(num))
 
 def bytes_big_endian_to_int(bytestr):
     num = 0
@@ -25,6 +28,8 @@ def bytes_big_endian_to_int(bytestr):
         num += b
     return num
 
+num = b'\x06'
+print(bytes_big_endian_to_int(num))
 
 def bytes_little_endian_to_int(bytestr):
     num = 0
@@ -33,3 +38,5 @@ def bytes_little_endian_to_int(bytestr):
         num += b << e
         e += 8
     return num
+
+print(bytes_little_endian_to_int(num))

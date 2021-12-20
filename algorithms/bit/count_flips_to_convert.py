@@ -17,3 +17,7 @@ def count_flips_to_convert(a, b):
         diff &= (diff - 1)
         count += 1
     return count
+
+
+a, b = 28, 13
+print(count_flips_to_convert(a, b))
