@@ -30,3 +30,7 @@ def count_ones_iter(n):
         n &= (n-1)
         count += 1
     return count
+
+n = 12
+print(count_ones_recur(n))
+print(count_ones_iter(n))
