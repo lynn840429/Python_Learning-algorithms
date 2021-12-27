@@ -21,8 +21,16 @@ and then, B xor 0 =  B
 """
 def find_difference(s, t):
     ret = 0
+    print(s + t)
     for ch in s + t:
         # ord(ch) return an integer representing the Unicode code point of that character
         ret = ret ^ ord(ch)
+        print("ret=", ret, ", ch=", ch, ", ord(ch)=", ord(ch))
     # chr(i) Return the string representing a character whose Unicode code point is the integer i
     return chr(ret)
+
+s = "abcd"
+t = "abecd"
+print(find_difference(s, t))
+
+print(ord("c") ^ ord("c") ^ ord("a"))
