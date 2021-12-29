@@ -25,3 +25,7 @@ def find_missing_number2(nums):
     total_sum = n*(n+1) // 2
     missing = total_sum - num_sum
     return missing
+
+#nums = [4, 1, 3, 0, 6, 5, 2]
+nums = [4, 1, 3, 0, 6, 7, 2]
+print(find_missing_number2(nums))
