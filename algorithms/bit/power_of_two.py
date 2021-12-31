@@ -7,3 +7,6 @@ def is_power_of_two(n):
     :rtype: bool
     """
     return n > 0 and not n & (n-1)
+
+n_list = [i for i in range(10)]
+print([(i, is_power_of_two(i)) for i in n_list])
