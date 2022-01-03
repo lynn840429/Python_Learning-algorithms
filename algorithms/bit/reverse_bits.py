@@ -6,11 +6,34 @@ For example, given input 43261596
 return 964176192
 (represented in binary as 00111001011110000010100101000000).
 """
+import time
+
 def reverse_bits(n):
     m = 0
     i = 0
     while i < 32:
+    #while i < 4:
         m = (m << 1) + (n & 1)
         n >>= 1
         i += 1
     return m
+
+
+def reverse_bits_v2(n):
+    n_bit = list("{:032b}".format(n))
+    #n_bit = list("{:04b}".format(n))
+    n_bit = ''.join(n_bit[::-1])
+    return int(n_bit, 2)
+
+
+n = 43261596
+
+start = time.time()
+print(reverse_bits(n))
+end = time.time()
+print(end - start)
+
+start = time.time()
+print(reverse_bits_v2(n))
+end = time.time()
+print(end - start)
