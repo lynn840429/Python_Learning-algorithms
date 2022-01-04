@@ -21,3 +21,8 @@ def single_number(nums):
     for num in nums:
         i ^= num
     return i
+
+
+
+nums = [1, 1, 2, 2, 3, 3, 3, 4, 4, 5, 5]
+print(single_number(nums))
