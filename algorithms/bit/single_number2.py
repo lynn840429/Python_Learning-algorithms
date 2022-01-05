@@ -24,4 +24,8 @@ def single_number2(nums):
     for i in range(len(nums)):
         ones = (ones ^ nums[i]) & ~twos
         twos = (twos ^ nums[i]) & ~ones
+        print(nums[i], ones, twos)
     return ones
+
+nums = [1, 1, 1, 2, 2, 2, 3, 4, 4, 4, 5, 5, 5]
+print(single_number2(nums))
