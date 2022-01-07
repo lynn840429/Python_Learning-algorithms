@@ -38,6 +38,7 @@ def single_number3(nums):
 
     # isolate right most bit from a^b
     right_most = ab & (-ab)
+    print("right_most=", right_most)
 
     # isolate a and b from a^b
     a, b = 0, 0
@@ -47,3 +48,8 @@ def single_number3(nums):
         else:
             b ^= n
     return [a, b]
+
+nums = [1, 2, 1, 3, 2, 5]
+nums = [1, 5, 1, 3, 5, 9]
+#nums = [2, 6, 2, 4, 6, 9]
+print(single_number3(nums))
