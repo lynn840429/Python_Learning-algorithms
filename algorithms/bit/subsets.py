@@ -64,11 +64,11 @@ In the above logic ,Insert S[i] only if (j>>i)&1 ==true
 { j E { 0,1,2,3,4,5,6,7 }   i = ith element in the input array }
 
 element 1 is inserted only into those places where 1st bit of j is 1
-if( j >> 0 &1 )  ==> for above above eg.
+if( j >> 0 & 1 )  ==> for above above eg.
 this is true for sl.no.( j )= 1 , 3 , 5 , 7
 
 element 2 is inserted only into those places where 2nd bit of j is 1
-if( j >> 1 &1 )  == for above above eg.
+if( j >> 1 & 1 )  == for above above eg.
 this is true for sl.no.( j ) = 2 , 3 , 6 , 7
 
 element 3 is inserted only into those places where 3rd bit of j is 1
