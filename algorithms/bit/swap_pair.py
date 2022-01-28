@@ -13,19 +13,12 @@ We can mask all odd bits with 10101010 in binary ('AA') then shift them right by
 Similarly, we mask all even bit with 01010101 in binary ('55') then shift them left
 by 1. Finally, we merge these two values by OR operation.
 """
-import time
+import sys
+import Tools.time_analysis
 
 
-def count_time(func):
-    def wrapper(arg):
-        start = time.time()
-        func(arg)
-        end = time.time()
-        print("Execution Time:%s sec" %(end-start))
-    return wrapper
 
-
-@count_time
+@Tools.time_analysis.execution_time_single_arg
 def swap_pair(num):
     # odd bit arithmetic right shift 1 bit
     odd = (num & int('AAAAAAAA', 16)) >> 1
@@ -36,7 +29,7 @@ def swap_pair(num):
     return odd | even
 
 
-@count_time
+@Tools.time_analysis.execution_time_single_arg
 def swap_pair_v2(num):
     num_bin = ''.join(['1' if i=='0'else '0' for i in bin(num)[2:]])
     print(int(num_bin, 2))
@@ -44,6 +37,6 @@ def swap_pair_v2(num):
 
 
 
-num = 1077
+num = 10
 print(swap_pair(num))
 print(swap_pair_v2(num))

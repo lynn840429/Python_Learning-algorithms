@@ -35,4 +35,12 @@ def has_alternative_bit(n):
 def has_alternative_bit_fast(n):
     mask1 = int('aaaaaaaa', 16)  # for bits ending with zero (...1010)
     mask2 = int('55555555', 16)  # for bits ending with one  (...0101)
+    # print(bin(mask1), bin(mask2))
+    # print(bin((n ^ mask1)), bin(n + (n ^ mask1)))
+    # print(bin((n ^ mask2)), bin(n + (n ^ mask2)))
     return mask1 == (n + (n ^ mask1)) or mask2 == (n + (n ^ mask2))
+
+
+n = 10
+print(has_alternative_bit(n))
+print(has_alternative_bit_fast(n))
