@@ -34,6 +34,7 @@ def insert_one_bit(num, bit, i):
     mask = mask << i
     # Keep the bit from 0 position to i position
     right = ((1 << i) - 1) & num
+    print(bin(mask), bin(right))
     return right | mask
 
 def insert_mult_bits(num, bits, len, i):
@@ -41,4 +42,12 @@ def insert_mult_bits(num, bits, len, i):
     mask = (mask << len) | bits
     mask = mask << i
     right = ((1 << i) - 1) & num
+    print(bin(mask), bin(right))
     return right | mask
+
+
+num, bit, i = 21, 1, 2
+print(insert_one_bit(num, bit, i))
+
+num, bits, len, i = 5, 7, 3, 1
+print(insert_mult_bits(num, bits, len, i))
