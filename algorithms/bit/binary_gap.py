@@ -40,18 +40,23 @@ def binary_gap_improved(N):
     ans = 0
     index = 0
     while N != 0:
+        print(bin(N)[2:])
         tes = N & 1
         if tes:
             if last is not None:
                 ans = max(ans, index - last + 1)
             else:
                 last = index
+            print("ans=", ans)
         else:
             last = index + 1
+        
+        print("last=", last, ", index=", index, "\n")
         index = index + 1
         N = N >> 1
     return ans
 
 
-print(binary_gap(111))
-print(binary_gap_improved(111))
+#print(bin(111))
+#print(binary_gap(111))
+print(binary_gap_improved(110))
