@@ -35,6 +35,9 @@ def encode_rle(input):
     else:
         return encoded_str + (str(count) + prev_ch)
 
+input = "HelloHello"
+rle_enc = encode_rle(input)
+print(rle_enc)
 
 def decode_rle(input):
     """
@@ -56,3 +59,7 @@ def decode_rle(input):
             # Add it in the counter
             count += ch
     return decode_str
+
+
+rle_dec = decode_rle(rle_enc)
+print(rle_dec)
