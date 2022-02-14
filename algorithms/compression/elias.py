@@ -47,3 +47,7 @@ def elias_delta(x):
 	For the first part we put the elias_g of the number.
 	"""
 	return elias_generic(elias_gamma,x)
+
+
+print(elias_gamma(7012))
+print(elias_delta(7012))
