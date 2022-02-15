@@ -59,6 +59,8 @@ def get_factors(n):
         return res
     return factor(n, 2, [], [])
 
+#print(get_factors(45))
+
 
 def get_factors_iterative1(n):
     """[summary]
@@ -109,3 +111,5 @@ def get_factors_iterative2(n):
             n //= x
         else:
             x += 1
+
+print(get_factors_iterative2(45))
