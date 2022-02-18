@@ -42,3 +42,11 @@ def dfs(grid, i, j):
     dfs(grid, i-1, j)
     dfs(grid, i, j+1)
     dfs(grid, i, j-1)
+
+
+grid = [[1, 1, 1, 1, 0],
+        [1, 1, 0, 1, 0],
+        [1, 1, 0, 0, 0],
+        [0, 0, 0, 0, 1]]
+
+print(num_islands(grid))
