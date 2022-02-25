@@ -63,3 +63,18 @@ def dfs(grid, matrix, height, i, j):
     dfs(grid, matrix, matrix[i][j], i+1, j)
     dfs(grid, matrix, matrix[i][j], i, j-1)
     dfs(grid, matrix, matrix[i][j], i, j+1)
+
+
+# mat = [ [1, 2, 2, 3, 5],
+#         [3, 2, 3, 4, 4],
+#         [2, 4, 5, 3, 1],
+#         [6, 7, 1, 4, 5],
+#         [5, 1, 1, 2, 4] ]
+
+mat = [ [1, 2, 2, 3, 5],
+        [3, 2, 3, 4, 3],
+        [2, 4, 5, 3, 1],
+        [6, 1, 1, 4, 5],
+        [5, 1, 1, 2, 4] ]
+
+print(pacific_atlantic(mat))

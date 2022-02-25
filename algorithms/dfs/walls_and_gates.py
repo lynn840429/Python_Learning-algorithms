@@ -25,6 +25,10 @@ def walls_and_gates(rooms):
             if rooms[i][j] == 0:
                 dfs(rooms, i, j, 0)
 
+            for k in range(len(rooms)):
+                print(rooms[k])
+            print("")
+
 
 def dfs(rooms, i, j, depth):
     if (i < 0 or i >= len(rooms)) or (j < 0 or j >= len(rooms[0])):
@@ -36,3 +40,15 @@ def dfs(rooms, i, j, depth):
     dfs(rooms, i-1, j, depth+1)
     dfs(rooms, i, j+1, depth+1)
     dfs(rooms, i, j-1, depth+1)
+
+
+INF = 2**31 - 1
+room = [
+    [INF, -1,  0,   INF],
+    [INF, INF, INF, -1],
+    [INF, -1,  INF, -1],
+    [0,   -1,  INF, INF]
+]
+
+walls_and_gates(room)
+#print(room)
