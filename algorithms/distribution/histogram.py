@@ -26,3 +26,8 @@ def get_histogram(input_list: list) -> dict:
     for i in input_list:
         histogram[i] = histogram.get(i, 0) + 1
     return histogram
+
+
+
+list_1 = [3, 3, 2, 1]
+print(get_histogram(list_1))
