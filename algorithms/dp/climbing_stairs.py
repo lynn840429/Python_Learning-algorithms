@@ -21,6 +21,9 @@ def climb_stairs(n):
         arr.append(arr[-1] + arr[-2])
     return arr[-1]
 
+n = 4
+print(climb_stairs(n))
+
 
 # the above function can be optimized as:
 # O(1) space
