@@ -49,6 +49,12 @@ def combination_sum_topdown(nums, target):
     return helper_topdown(nums, target)
 
 
+nums = [1, 2, 3]
+target = 4
+print(combination_sum_topdown(nums, target))
+
+
+
 # EDIT: The above solution is top-down. How about a bottom-up one?
 def combination_sum_bottom_up(nums, target):
     comb = [0] * (target + 1)

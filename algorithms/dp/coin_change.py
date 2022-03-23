@@ -26,3 +26,8 @@ def count(coins, n):
 
     return dp[n]
 
+# n = 4
+# coins = [1, 2, 3]
+n = 10
+coins = [2, 5, 3, 6]
+print(count(coins, n))
