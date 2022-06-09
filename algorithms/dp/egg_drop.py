@@ -49,4 +49,11 @@ def egg_drop(n, k):
                     egg_floor[i][j] = res
  
     # eggFloor[n][k] holds the result
-    return egg_floor[n][k]
+    return egg_floor[n][k], egg_floor
+
+k = 10
+n = 10
+ans, arr = egg_drop(n, k)
+for i in arr:
+    print(i)
+print(ans)
