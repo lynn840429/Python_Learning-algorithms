@@ -35,10 +35,16 @@ Explaination:
 
 """
 
+import logging
+
+logging.basicConfig(level=logging.DEBUG)
+# logging.disable(logging.DEBUG)
 
 def int_divide(n):
     arr = [[0 for i in range(n + 1)] for j in range(n + 1)]
+    logging.debug(str(("arr list", arr)))
     arr[1][1] = 1
+    logging.debug(str(("arr list", arr)))
     for i in range(1, n + 1):
         for j in range(1, n + 1):
             if i < j:
@@ -48,3 +54,7 @@ def int_divide(n):
             else:
                 arr[i][j] = arr[i][j - 1] + arr[i - j][j]
     return arr[n][n]
+
+
+n = 4
+print(int_divide(n))
