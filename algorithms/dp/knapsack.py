@@ -22,7 +22,18 @@ class Item:
 def get_maximum_value(items, capacity):
     dp = [0] * (capacity + 1)
     for item in items:
+        print("\nitem.value =", item.value, ", item.weight =", item. weight)
         for cur_weight in reversed(range(item.weight, capacity+1)):
+            print("cur_weight = %d, dp[%d] = %d, new = %d + dp[%d]:(%d)" %(cur_weight, cur_weight, dp[cur_weight], item.value, (cur_weight - item.weight), dp[(cur_weight - item.weight)]))
+
             dp[cur_weight] = max(dp[cur_weight], item.value + dp[cur_weight - item.weight])
+
+            print("dp[%d] = %d" %(cur_weight, dp[cur_weight]))
+
     return dp[capacity]
 
+
+
+items = [Item(60, 5), Item(50, 3), Item(70, 4), Item(30, 2), Item(50, 1), Item(30, 1)]
+ans = get_maximum_value(items, 5)
+print(ans)
